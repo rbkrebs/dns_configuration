@@ -1,6 +1,6 @@
 # Configuração Serviço de DNS
 
-Este documento detalha os passos necessários para realizar a configuração de um servidor DNS. Atividade que faz parte da disciplina Rdes de Computadores 2 do curso de Sistemas para Internet `IFRS Poa`. Atividade realizada junto com a colega [Rafaela](https://github.com/rafcristina152)
+Este documento detalha os passos necessários para realizar a configuração de um servidor DNS. Atividade que faz parte da disciplina Redes de Computadores 2 do curso de Sistemas para Internet `IFRS Poa`. Atividade realizada junto com a colega [Rafaela](https://github.com/rafcristina152)
 
 
 ## Configuration
@@ -52,4 +52,12 @@ Agora digite o usuário "aluno" e a senha "aluno".
 7.  Agora você deve executar o comando `/etc/init.d/networking restart` para reiniciar o serviço.
 
 ![restart networking](./Imagem8.PNG)
+
+8.  Agora o dispositivo **eth3** deverá aparecer após o comando `ifconfig`.
+
+![eth3 configurado](./Imagem9.PNG)
+
+> [!WARNING]
+> Para evitar possíveis erros, execute o comando apt-get update para atualizar os pacotes de todas as fontes configuradas.
+> Até o momento, fizemos algumas verificações e configurações. A instalação do serviço de DNS começa a partir daqui.
 

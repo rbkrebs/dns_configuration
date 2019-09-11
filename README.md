@@ -117,4 +117,27 @@ Agora digite o usuário "aluno" e a senha "aluno".
 
 ![edição do arquivo db.redes2](./Imagem22.PNG)
 
+23. Vamos, então, resolver esse problema. Primeiro entre na pasta cd, depois digite vi resolv.conf para configurar o IP do servidor DNS. Em name server, informe o IP 127.0.0.1. Importante: toda vez que você reiniciar a máquina, o nameserver será trocado para o valor inicial.
+
+![edição do arquivo db.redes2](./Imagem23.PNG)
+
+24. Vamos testar o nosso servidor. Digite ping www.terra.com.br. Se o seu funcionou, maravilha! O seu servidor foi configurado corretamente. Se der erro, como no nosso caso, vamos fazer alguns passos extras.
+
+![edição do arquivo db.redes2](./Imagem24.PNG)
+
+25. Entre na pasta bind (cd /etc/bind) e edite o arquivo named.conf.options (vi named.conf.options). Comente as linhas destacadas em amarelo utilizando #.
+
+![edição do arquivo db.redes2](./Imagem25.PNG)
+
+26. Reinicie o serviço do bind (/etc/init.d/bind9 restart) e teste novamente o ping www.terra.com.br. 
+
+![edição do arquivo db.redes2](./Imagem26.PNG)
+
+27. Teste do comando dig server.redes2.com.br
+
+![edição do arquivo db.redes2](./Imagem27.PNG)
+
+28. Teste do comando host 127.0.0.1
+
+![edição do arquivo db.redes2](./Imagem28.PNG)
 

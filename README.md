@@ -97,7 +97,15 @@ Agora digite o usuário "aluno" e a senha "aluno".
 
 ![atribuição de ip fixo](./Imagem17.PNG)
 
-18. Dê ifconfig e verifique que o novo dispositivo tem IP e máscara exatamente iguais aqueles que definimos no passo anterior.
+18. Dê `ifconfig` e verifique que o novo dispositivo tem IP e máscara exatamente iguais aqueles que definimos no passo anterior.
 
 ![verificação do dispositivo](./Imagem18.PNG)
+
+19. Agora podemos, finalmente, editar o arquivo `db.redes2`. Entre na pasta bind (`cd /etc/bind`) e digite `vi db.redes2`.
+
+![edição do arquivo db.redes2](./Imagem19.PNG)
+
+20. Realize as modificações de acordo com o a imagem abaixo. **ESC** e `:wq` para salvar e sair do arquivo. Reinicie o serviço do bind com o comando `/etc/init.d/bind9 restart`.
+
+![edição do arquivo db.redes2](./Imagem20.PNG)
 

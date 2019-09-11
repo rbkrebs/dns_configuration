@@ -84,3 +84,20 @@ Agora digite o usuário "aluno" e a senha "aluno".
 14. Antes de editar o arquivo `db.redes2`, precisamos fazer uma nova configuração na nossa máquina virtual. É importante que você desligue a máquina para que o VirtualBox desbloqueie as opções. Voltando na tela de gerenciamento do VirtualBox, selecione a opção Configurações no menu como fizemos lá no começo do tutorial. Novamente, selecione a opção Redes no menu lateral esquerdo da janela de configurações. Na aba adaptador 3, habilite a placa de rede, selecione "Rede Interna" no campo "Conectado a" e inicie a máquina novamente.
 
 ![configuração do adaptador 3](./Imagem15.PNG)
+
+15. Lembre-se de entrar no modo super usuário novamente `sudo su`. Se você der o comando `ifconfig -a`, verá que existe um novo dispositivo de rede na listagem, mas que não possui endereço IP. No nosso caso, é o dispositivo **eth4**, mas o seu poderá apresentar um número diferente.
+
+![verificação do novo adaptador](./Imagem16.PNG)
+
+16. Lembre-se de entrar no modo super usuário novamente `sudo su`. Se você der o comando `ifconfig -a`, verá que existe um novo dispositivo de rede na listagem, mas que não possui endereço IP. No nosso caso, é o dispositivo **eth4**, mas o seu poderá apresentar um número diferente.
+
+![verificação do novo adaptador](./Imagem16.PNG)
+
+17.  Neste dispositivo, vamos atribuir um IP fixo. Acesse, então, o arquivo `/etc/network/interfaces` (`vi /etc/network/interfaces`) e preencha como está na imagem (**I** ou **Insert** para editar). Não esqueça que o seu dispositivo deve ser aquele que apareceu listado após o `ifconfig -a`. Pressione **ESC** e digite `:wq` para salvar e sair. Reinicie o serviço com `/etc/init.d/networking restart`.
+
+![atribuição de ip fixo](./Imagem17.PNG)
+
+18. Dê ifconfig e verifique que o novo dispositivo tem IP e máscara exatamente iguais aqueles que definimos no passo anterior.
+
+![verificação do dispositivo](./Imagem18.PNG)
+

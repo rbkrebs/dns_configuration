@@ -109,3 +109,12 @@ Agora digite o usuário "aluno" e a senha "aluno".
 
 ![edição do arquivo db.redes2](./Imagem20.PNG)
 
+21. Para testar o serviço de DNS, digite o comando nslookup, que serve para se obter informações sobre registros de DNS de um determinado domínio, host ou IP. Para nossos testes, utilizamos o endereço www.ifrs.edu.br.
+
+![edição do arquivo db.redes2](./Imagem21.PNG)
+
+22. Se testarmos o nosso servidor, vamos verificar que irá dar erro. O problema aqui é que ele está perguntando ao servidor DNS do roteador 200.132.52.65 e não o que configuramos.
+
+![edição do arquivo db.redes2](./Imagem22.PNG)
+
+

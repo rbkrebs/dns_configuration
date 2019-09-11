@@ -57,7 +57,30 @@ Agora digite o usuário "aluno" e a senha "aluno".
 
 ![eth3 configurado](./Imagem9.PNG)
 
-> [!WARNING]
-> Para evitar possíveis erros, execute o comando apt-get update para atualizar os pacotes de todas as fontes configuradas.
+
+> Para evitar possíveis erros, execute o comando `apt-get update` para atualizar os pacotes de todas as fontes configuradas.
 > Até o momento, fizemos algumas verificações e configurações. A instalação do serviço de DNS começa a partir daqui.
 
+9.  Execute o comando `apt-get install bind9`. Digite `S` quando o terminal perguntar se você deseja continuar. Mais informações sobre o bind9 você encontra [aqui](https://wiki.debian.org/Bind9) e [aqui](https://www.isc.org/bind/)
+
+![instalação do bind9](./Imagem10.PNG)
+
+10.  Quando a instalação do **bind** for concluída, entre na pasta dos arquivos de configuração `cd /etc/bind`. Com o comando `ls` você poderá ver uma lista dos arquivos da pasta **bind**. Vamos executar o comando `cat` para ver o conteúdo do arquivo `named.conf`. Você verá que o arquivo chama outros arquivos da pasta **bind** através de `includes`. Observe que os comentários do arquivo informam que, se você desejar adicionar zonas, deverá fazer isso no arquivo `named.conf.local` e é justamente isso que vamos fazer no passo a seguir.
+
+![configuração do arquivo bind](./Imagem11.PNG)
+
+11.  Edite o arquivo `named.conf.local` (`vi named.conf.local`) para registrar a zona que vamos criar. No nosso exemplo, criamos a zona `redes2.com.br`, mas você pode substituir o termo **redes2** pelo nome que preferir. Veja que o arquivo `db.redes2` ainda não existe, então, precisamos criá-lo.
+
+![criação de zonas no arquivo named.conf.local](./Imagem12.PNG)
+
+12. Para criar o arquivo `db.redes2`, digite o comando `touch db.redes2`. Veja se ele foi criado corretamente com o comando `ls`.
+
+![criação do arquivo db.redes2](./Imagem13.PNG)
+
+13. Apesar de criado, o arquivo `db.redes2` está vazio (`cat db.redes2`), então precisamos preenchê-lo de forma semelhante ao `db.local`. O comando `cp db.local db.redes2` irá copiar o conteúdo do `db.local` para o `db.redes2`.
+
+![configuração do arquivo db.redes2](./Imagem14.PNG)
+
+14. Antes de editar o arquivo `db.redes2`, precisamos fazer uma nova configuração na nossa máquina virtual. É importante que você desligue a máquina para que o VirtualBox desbloqueie as opções. Voltando na tela de gerenciamento do VirtualBox, selecione a opção Configurações no menu como fizemos lá no começo do tutorial. Novamente, selecione a opção Redes no menu lateral esquerdo da janela de configurações. Na aba adaptador 3, habilite a placa de rede, selecione "Rede Interna" no campo "Conectado a" e inicie a máquina novamente.
+
+![configuração do adaptador 3](./Imagem15.PNG)

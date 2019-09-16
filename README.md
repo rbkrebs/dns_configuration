@@ -41,6 +41,12 @@ Agora digite o usuário "aluno" e a senha "aluno".
 
 ![resultado do ip link show](./Imagem5.PNG)
 
+> Caso deseje, você poderá utilizar a ferramenta PuTTY para acessar de forma remota a sua máquina virtual.
+ Para isso, é necessário que você informe o Host Name (localhost) e a porta (5000). Se quiser salvar a sua sessão, informe  um nome para ela no campo Saved Sessions e selecione o botão Save.
+ Após esses passos, clique duas vezes no nome da sessão que você acabou de criar e informe as mesmas credenciais que você informou na máquina virtual (login aluno e senha aluno) e o ambiente remoto estará pronto para uso.
+
+![acesso remoto usando o PuTTY](./Imagem29.PNG)
+
 5.  Para que o dispositivo **eth3** apareça após o comando ifconfig, é necessário listá-lo dentro do arquivo que registra as interfaces de rede. Para isso, digite `vi /etc/network/interfaces`. Importante: para fazer alterações nesses arquivos, você deve estar com a permissão de super usuário `sudo su`.
 
 ![informações arquivo interfaces](./Imagem6.PNG)
@@ -107,37 +113,37 @@ Agora digite o usuário "aluno" e a senha "aluno".
 
 20. Realize as modificações de acordo com o a imagem abaixo. **ESC** e `:wq` para salvar e sair do arquivo. Reinicie o serviço do bind com o comando `/etc/init.d/bind9 restart`.
 
-![edição do arquivo db.redes2](./Imagem20.PNG)
+![arquivo db.redes2 editado](./Imagem20.PNG)
 
 21. Para testar o serviço de DNS, digite o comando nslookup, que serve para se obter informações sobre registros de DNS de um determinado domínio, host ou IP. Para nossos testes, utilizamos o endereço www.ifrs.edu.br.
 
-![edição do arquivo db.redes2](./Imagem21.PNG)
+![teste do endereço www.ifrs.edu.br](./Imagem21.PNG)
 
 22. Se testarmos o nosso servidor, vamos verificar que irá dar erro. O problema aqui é que ele está perguntando ao servidor DNS do roteador 200.132.52.65 e não o que configuramos.
 
-![edição do arquivo db.redes2](./Imagem22.PNG)
+![erro no teste server.redes2.com.br](./Imagem22.PNG)
 
 23. Vamos, então, resolver esse problema. Primeiro entre na pasta cd, depois digite vi resolv.conf para configurar o IP do servidor DNS. Em name server, informe o IP 127.0.0.1. Importante: toda vez que você reiniciar a máquina, o nameserver será trocado para o valor inicial.
 
-![edição do arquivo db.redes2](./Imagem23.PNG)
+![configuração do arquivo resolv.conf](./Imagem23.PNG)
 
 24. Vamos testar o nosso servidor. Digite ping www.terra.com.br. Se o seu funcionou, maravilha! O seu servidor foi configurado corretamente. Se der erro, como no nosso caso, vamos fazer alguns passos extras.
 
-![edição do arquivo db.redes2](./Imagem24.PNG)
+![erro no ping para www.terra.com.br](./Imagem24.PNG)
 
 25. Entre na pasta bind (cd /etc/bind) e edite o arquivo named.conf.options (vi named.conf.options). Comente as linhas destacadas em amarelo utilizando #.
 
-![edição do arquivo db.redes2](./Imagem25.PNG)
+![trechos comentados do arquivo](./Imagem25.PNG)
 
 26. Reinicie o serviço do bind (/etc/init.d/bind9 restart) e teste novamente o ping www.terra.com.br. 
 
-![edição do arquivo db.redes2](./Imagem26.PNG)
+![ping para www.terra.com.br](./Imagem26.PNG)
 
 27. Teste do comando dig server.redes2.com.br
 
-![edição do arquivo db.redes2](./Imagem27.PNG)
+![teste do comando dig](./Imagem27.PNG)
 
 28. Teste do comando host 127.0.0.1
 
-![edição do arquivo db.redes2](./Imagem28.PNG)
+![teste do comando host](./Imagem28.PNG)
 

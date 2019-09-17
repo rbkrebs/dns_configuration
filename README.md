@@ -123,7 +123,7 @@ Agora digite o usuário "aluno" e a senha "aluno".
 
 ![erro no teste server.redes2.com.br](./Imagem22.PNG)
 
-23. Vamos, então, resolver esse problema. Primeiro entre na pasta cd, depois digite vi resolv.conf para configurar o IP do servidor DNS. Em name server, informe o IP 127.0.0.1. Importante: toda vez que você reiniciar a máquina, o nameserver será trocado para o valor inicial.
+23. Vamos, então, resolver esse problema. Primeiro entre na pasta `cd /etc`, depois digite vi resolv.conf para configurar o IP do servidor DNS. Em name server, informe o IP 127.0.0.1. Importante: toda vez que você reiniciar a máquina, o nameserver será trocado para o valor inicial.
 
 ![configuração do arquivo resolv.conf](./Imagem23.PNG)
 
@@ -146,4 +146,27 @@ Agora digite o usuário "aluno" e a senha "aluno".
 28. Teste do comando host 127.0.0.1
 
 ![teste do comando host](./Imagem28.PNG)
+
+## Adicionando outros serviços do DNS
+
+Para disponibilizar outros serviços do DNS, como, por exemplo, e-mail, basta configurar, novamente, o arquivo db.redes2.
+
+![configuracao email no DNS](./Imagem30.PNG)
+
+Após salvar as modificações com `:wq`, reinicialize o sistema com `/etc/init.d/bind9 restart`. 
+
+Confira o log do sistema com `cat /var/log/syslog`.  Veja que a zona redes2.com.br carregada.
+
+![log após configuração de email no DNS](./Imagem31.PNG)
+
+Para testar se está funcionando o serviço de e-mail do DNS, digite nslookup. Em seguinte, execute os seguintes comandos:
+
+```>server
+> mail.redes2.com.br
+> set q=MX
+> redes2.com.br
+> set q=NS
+> redes.com.br 
+```
+![testes de nsloopkup](./Imagem32.PNG)
 

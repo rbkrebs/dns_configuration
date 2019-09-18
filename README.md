@@ -189,3 +189,15 @@ Agora, abra o arquivo **db.172.16** no vi e faça as alterações de acordo com 
 Antes de testarmos nosso serviço, execute o comando `/etc/init.d/bind9 restart` para reiniciá-lo e `cat /var/log/syslog` para verificar eventuais erros que possam ocorrer.
 
 ![verificação do log](./Imagem36.PNG)
+
+Teste o comando host 172.16.0.1
+
+![teste o comando host 172.16.0.1](./Imagem37.PNG)
+
+Teste o comando nslookup
+
+![teste o comando nslookup](./Imagem38.PNG)
+
+Teste o comando dig 172.16.0.1
+
+![teste o comando dig 172.16.0.1](./Imagem39.PNG)

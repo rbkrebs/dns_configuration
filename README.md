@@ -119,31 +119,31 @@ Agora digite o usuário "aluno" e a senha "aluno".
 
 ![teste do endereço www.ifrs.edu.br](./Imagem21.PNG)
 
-22. Se testarmos o nosso servidor, vamos verificar que irá dar erro. O problema aqui é que ele está perguntando ao servidor DNS do roteador 200.132.52.65 e não o que configuramos.
+22. Se testarmos o nosso servidor, vamos verificar que irá dar erro. O problema aqui é que ele está perguntando ao servidor DNS do roteador **200.132.52.65** e não o que configuramos.
 
 ![erro no teste server.redes2.com.br](./Imagem22.PNG)
 
-23. Vamos, então, resolver esse problema. Primeiro entre na pasta `cd /etc`, depois digite vi resolv.conf para configurar o IP do servidor DNS. Em name server, informe o IP 127.0.0.1. Importante: toda vez que você reiniciar a máquina, o nameserver será trocado para o valor inicial.
+23. Vamos, então, resolver esse problema. Primeiro entre na pasta `cd /etc`, depois digite `vi resolv.conf` para configurar o **IP** do servidor DNS. Em name server, informe o **IP 127.0.0.1**. Importante: toda vez que você reiniciar a máquina, o nameserver será trocado para o valor inicial.
 
 ![configuração do arquivo resolv.conf](./Imagem23.PNG)
 
-24. Vamos testar o nosso servidor. Digite ping www.terra.com.br. Se o seu funcionou, maravilha! O seu servidor foi configurado corretamente. Se der erro, como no nosso caso, vamos fazer alguns passos extras.
+24. Vamos testar o nosso servidor. Digite ping **www.terra.com.br**. Se o seu funcionou, maravilha! O seu servidor foi configurado corretamente. Se der erro, como no nosso caso, vamos fazer alguns passos extras.
 
 ![erro no ping para www.terra.com.br](./Imagem24.PNG)
 
-25. Entre na pasta bind (cd /etc/bind) e edite o arquivo named.conf.options (vi named.conf.options). Comente as linhas destacadas em amarelo utilizando #.
+25. Entre na pasta bind `cd /etc/bind` e edite o arquivo **named.conf.options** `vi named.conf.options`. Comente as linhas destacadas em amarelo utilizando **#**.
 
 ![trechos comentados do arquivo](./Imagem25.PNG)
 
-26. Reinicie o serviço do bind (/etc/init.d/bind9 restart) e teste novamente o ping www.terra.com.br. 
+26. Reinicie o serviço do bind `/etc/init.d/bind9 restart` e teste novamente o `ping www.terra.com.br`. 
 
 ![ping para www.terra.com.br](./Imagem26.PNG)
 
-27. Teste do comando dig server.redes2.com.br
+27. Teste do comando `dig server.redes2.com.br`
 
 ![teste do comando dig](./Imagem27.PNG)
 
-28. Teste do comando host 127.0.0.1
+28. Teste do comando `host 127.0.0.1`
 
 ![teste do comando host](./Imagem28.PNG)
 
@@ -182,7 +182,7 @@ Abra o arquivo named.conf.local no `vi named.conf.local` para adicionar a zona c
 
 ![configuração do arquivo named.conf.local](./Imagem34.PNG)
 
-Agora, abra o arquivo **db.172.16** no vi e faça as alterações de acordo com a imagem abaixo. Não esqueça de trocar onde está escrito redes2 pelo nome que você vem utilizando até agora ao longo do tutorial.
+Agora, abra o arquivo **db.172.16** no vi e faça as alterações de acordo com a imagem abaixo. Não esqueça de trocar onde está escrito **redes2** pelo nome que você vem utilizando até agora ao longo do tutorial.
 
 ![configurações do arquivo db.172.16](./Imagem35.PNG)
 
@@ -190,14 +190,14 @@ Antes de testarmos nosso serviço, execute o comando `/etc/init.d/bind9 restart`
 
 ![verificação do log](./Imagem36.PNG)
 
-Teste o comando host 172.16.0.1
+Teste o comando `host 172.16.0.1`
 
 ![teste o comando host 172.16.0.1](./Imagem37.PNG)
 
-Teste o comando nslookup
+Teste o comando `nslookup`
 
 ![teste o comando nslookup](./Imagem38.PNG)
 
-Teste o comando dig 172.16.0.1
+Teste o comando `dig 172.16.0.1`
 
 ![teste o comando dig 172.16.0.1](./Imagem39.PNG)

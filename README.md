@@ -147,7 +147,7 @@ Agora digite o usuário "aluno" e a senha "aluno".
 
 ![teste do comando host](./Imagem28.PNG)
 
-## Adicionando outros serviços do DNS
+### Adicionando outros serviços do DNS
 
 Para disponibilizar outros serviços do DNS, como, por exemplo, e-mail, basta configurar, novamente, o arquivo db.redes2.
 
@@ -170,3 +170,22 @@ Para testar se está funcionando o serviço de e-mail do DNS, digite nslookup. E
 ```
 ![testes de nsloopkup](./Imagem32.PNG)
 
+### Zona REVERSA
+
+As instruções a seguir definem os passos para configurar a zona reversa do DNS, ou seja, obter o nome do computador na rede através de um **IP**.
+
+O primeiro passo é a criação de um arquivo de configuração chamado **db.172.16** na pasta bind `/etc/bind`. Para a construção do arquivo de configuração, usaremos como base o **db.127**, arquivo presente também na pasta bind. Execute, então, o comando `cp db.127 db.172.16`.
+
+![mostra o arquivo db.172.16](./Imagem33.PNG)
+
+Abra o arquivo named.conf.local no `vi named.conf.local` para adicionar a zona criada como na imagem abaixo.
+
+![configuração do arquivo named.conf.local](./Imagem34.PNG)
+
+Agora, abra o arquivo **db.172.16** no vi e faça as alterações de acordo com a imagem abaixo. Não esqueça de trocar onde está escrito redes2 pelo nome que você vem utilizando até agora ao longo do tutorial.
+
+![configurações do arquivo db.172.16](./Imagem35.PNG)
+
+Antes de testarmos nosso serviço, execute o comando `/etc/init.d/bind9 restart` para reiniciá-lo e `cat /var/log/syslog` para verificar eventuais erros que possam ocorrer.
+
+![verificação do log](./Imagem36.PNG)
